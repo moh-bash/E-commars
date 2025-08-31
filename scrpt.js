@@ -45,9 +45,9 @@ function Products(productList) {
 
 // دالة البحث
 searchInput.addEventListener("input", function () {
-  const query = this.value.toLowerCase();
-  const filtere = products.filter(product =>
-    product.title.toLowerCase().includes(query)
+  let word = this.value.toLowerCase();
+  let filtere = products.filter(product =>
+    product.title.toLowerCase().includes(word)
   );
   Products(filtere);
 });

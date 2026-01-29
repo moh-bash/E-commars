@@ -2,87 +2,214 @@ let productsbox = document.getElementById("products");
 let searchInput = document.getElementById("serch");
 let products = [];
 
-fetch('https://dummyjson.com/products')
-  .then(res => res.json())
-  .then(data => {
-    products = data.products;
+fetch("https://furniture-api.fly.dev/v1/products")
+  .then((res) => res.json())
+  .then((response) => {
+    products = response.data; 
+    console.log("Products:", products);
     Products(products); 
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
   });
 
-
 function Products(productList) {
-    productsbox.innerHTML = ""; 
-    productList.forEach(product => {
+  productsbox.innerHTML = "";
+  productList.forEach((product) => {
     const item = document.createElement("div");
-    item.className = "mx-auto w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-900 dark:border-gray-700";
+    item.id = `pro-${product.id}`;
+    item.className =
+      "mx-auto w-full max-w-sm bg-white border border-gray-200 rounded-2xl shadow-md dark:shadow-md dark:shadow-zinc-900 dark:bg-gray-900  dark:border-gray-700";
     item.innerHTML = `
-        <a href="#">
-            <img class="p-8 rounded-t-lg h-44 mx-auto" src="${product.thumbnail}" alt="product image" />
-        </a>
-        <div class="px-5 pb-5">
-            <a href="#">
-            <h5 class="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">${product.title}</h5>
-            </a>
-            <div class="flex items-center mt-2.5 mb-5">
-            <div class="flex items-center space-x-1 rtl:space-x-reverse">
-                <i class="fa-solid fa-star w-3 h-3 text-yellow-300"></i>
-                <i class="fa-solid fa-star w-3 h-3 text-yellow-300"></i>
-                <i class="fa-solid fa-star w-3 h-3 text-yellow-300"></i>
-                <i class="fa-solid fa-star w-3 h-3 text-yellow-300"></i>
-                <i class="fa-solid fa-star w-3 h-3 text-gray-200"></i>
-            </div>
-            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm dark:bg-blue-200 dark:text-blue-800 ms-3">${product.dimensions?.width || ''}</span>
-            </div>
-            <div class="flex items-center justify-between">
-            <span class="text-2xl font-bold text-gray-900 dark:text-white">$ ${product.price}</span>
-            <a href="#" class="text-white bg-lime-500 hover:bg-lime-500 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">Add to cart</a>
-            </div>
-        </div> `
-    ;
+    <div>
+      <div class="group  relative">
+        <button id="fav-${product.id}" 
+          class="absolute bottom-1 right-14 m-3 text-gray-400 hover:text-red-500 transition bg-white rounded-lg py-1 px-2 hidden group-hover:block">
+          <i id="icon-${product.id}" class="fa-regular fa-heart text-xl"></i>
+        </button>
+        <button onclick="" id="cart-${product.id}" 
+          class="absolute bottom-1 right-2 m-3 text-gray-400 hover:text-red-500 transition bg-white rounded-lg py-1 px-2 hidden group-hover:block">
+          <i id="cart-icon-${product.id}" class="fa-solid fa-cart-shopping text-xl"></i>
+        </button>
+        <img class="w-full rounded-t-2xl" src="${product.image_path}" alt="product image" />
+      </div>
+      <h5 class="mt-2 ms-3 text-md font-semibold tracking-tight text-gray-900 dark:text-white">${product.name}</h5>
+      <div class="flex items-center justify-between mx-4 pe-1 mt-1 mb-2">
+          <p class="text-lg font-bold text-gray-900 dark:text-white">$${product.price}</p>
+          <button  href="#" class="text-lime-500 hover:text-white focus:ring-white font-medium text-sm ">
+            <i class="fa-solid fa-angles-left me-1" ></i>Show More<i class="fa-solid fa-eye ms-2 text-white"></i>
+          </button>
+      </div>
+    </div>
+    `;
     productsbox.appendChild(item);
   });
 }
 
-// دالة البحث
+// serch
 searchInput.addEventListener("input", function () {
   let word = this.value.toLowerCase();
-  let filtere = products.filter(product =>
-    product.title.toLowerCase().includes(word)
+  let filtere = products.filter((product) =>
+    (product.name || product.title || "").toLowerCase().includes(word)
   );
   Products(filtere);
 });
 
 // shoopp
- function shoopp() {
+function shoopp() {
   let car = document.getElementById("select-modal");
-  car.classList.toggle("hidden")
+  car.classList.toggle("hidden");
 }
 // cloos shoopp
-function closss(){
-    let x =document.getElementById("select-modal");
-    x.classList.toggle("hidden")
+function closss() {
+  let x = document.getElementById("select-modal");
+  x.classList.toggle("hidden");
 }
-
 
 // favorite
- function favorite() {
+function favorite() {
   let mnu = document.getElementById("select-favorite");
-  mnu.classList.toggle("hidden")
+  mnu.classList.toggle("hidden");
 }
 // cloos favorite
-function clossf(){
-    let x =document.getElementById("select-favorite");
-    x.classList.toggle("hidden")
+function clossf() {
+  let x = document.getElementById("select-favorite");
+  x.classList.toggle("hidden");
 }
 
+// bottn favorite
+let favProducts = [];
+function toggleFavorite(productId) {
+  let favIcon = document.getElementById(`icon-${productId}`);
+  favIcon.classList.toggle("text-red-500");
+
+  if (favProducts.includes(productId)) {
+    favProducts = favProducts.filter((id) => id !== productId);
+  } else {
+    favProducts.push(productId);
+  }
+
+  var listfav = document.getElementById("minuFavorite");
+  listfav.innerHTML = "";
+  favProducts.forEach((id) => {
+    const product = products.find((p) => p.id === id);
+    if (product) {
+      const li = document.createElement("li");
+      li.className = "flex items-center justify-between p-2 border-b";
+      li.innerHTML = `
+        <div class="flex items-center">
+          <img src="${product.image_path}" alt="${product.name}" class="w-10 h-10 rounded mr-2">
+          <span>${product.name}</span>
+        </div>
+        <span class="text-gray-600">$${product.price}</span>
+      `;
+      listfav.appendChild(li);
+    }
+  });
+}
 
 // add producte
-function addpro(){
-    let add = document.getElementById("addprobutt");
-    add.classList.toggle("hidden")
+function addpro() {
+  let add = document.getElementById("addprobutt");
+  add.classList.toggle("hidden");
 }
 // cloos add producte
-function closadd(){
-    let x =document.getElementById("addprobutt");
-    x.classList.toggle("hidden")
+function closadd() {
+  let x = document.getElementById("addprobutt");
+  x.classList.toggle("hidden");
+}
+
+// addproduct
+var form = document.getElementById("addProductForm");
+var modal = document.getElementById("addprobutt");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  var titleval = document.getElementById("titleName").value;
+  var priceval = document.getElementById("price").value;
+  var imgeval = document.getElementById("nameUrl").value;
+
+  var newpro = {
+    title: titleval,
+    price: priceval,
+    thumbnail: imgeval,
+  };
+
+  products.push(newpro);
+  modal.classList.toggle("hidden");
+});
+
+let cart = [];
+function showDetails(productId) {
+  const product = products.find((p) => p.id === productId);
+  document.getElementById("moretitle").textContent = product.name;
+  document.getElementById("moreimg").src = product.image_path;
+  document.getElementById("mordis").textContent = product.description;
+  document.getElementById("morprice").textContent = product.price;
+  document.getElementById("productModal").classList.toggle("hidden");
+
+  document.getElementById("btnc").addEventListener("click", function () {
+    cart.push(product);
+    let listcart = document.getElementById("listCart");
+    listcart.innerHTML = ``;
+    cart.forEach((product) => {
+      const li = document.createElement("li");
+      li.className = "flex items-center justify-between p-2 border-b";
+      li.innerHTML = `
+        <div  class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 dark:peer-checked:border-blue-600 peer-checked:text-blue-600  hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">                           
+          <div class="block">
+              <button onclick="" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:bg-gray-600 dark:text-white">
+                  <i class="fa-solid fa-trash"></i>
+              </button>
+              <div class="w-full text-lg font-semibold">${product.name}</div>
+              <div class="w-full text-gray-500 dark:text-gray-400">$${product.price}</div>
+              <div class="inline-flex">
+                  <button onclick="plas()" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="select-modal">
+                  +
+                  </button>
+                  <input id="nump" value="0" onclick="" type="number" class="text-center text-gray-400 bg-transparent bg-gray-200  rounded-lg text-sm h-8 w-14 p-2 ms-auto inline-flex justify-center items-center dark:bg-gray-400 dark:text-white">
+                      
+                  </input>
+                  <button onclick="ma()" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="select-modal">
+                  -
+                  </button>
+              </div>
+          </div>
+          <img class="w-36" src="${product.description}" alt="">
+      </div>
+    `;
+      listcart.appendChild(li);
+    });
+  });
+}
+
+function closemorpro() {
+  document.getElementById("productModal").classList.add("hidden");
+}
+
+// + -
+function plas() {
+  let val = document.getElementById("nump");
+  val.value = +val.value + 1;
+}
+function ma() {
+  let val = document.getElementById("nump");
+  val.value = +val.value - +1;
+}
+
+function gridlisa() {
+  let cartt = document.getElementById("products");
+  let fli = document.getElementById("mypro");
+  cartt.classList.toggle("lg:grid-cols-1");
+  cartt.classList.toggle("lg:grid-cols-3");
+}
+
+function darck() {
+  let nav = document.querySelectorAll(".navb");
+  nav.classList.toggle("dark:bg-gray-900");
+
+  // let ul =document.getElementById("ulnav");
+  // ul.classList.toggle("dark:bg-gray-800")
+  // ul.classList.toggle("dark:border-gray-700")
 }

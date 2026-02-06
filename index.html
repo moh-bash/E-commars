@@ -10,18 +10,18 @@
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body class="bg-gray-300">
-        <nav id="nav" class="relative z-10 sticky top-0 navb bg-white border-gray-200 dark:bg-gray-900">
+        <nav id="nav" class="relative z-10 sticky top-0 navb bg-white border-gray-200 ">
             <div class="container m-auto">
                 <div class="container m-auto max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src="./img11/1756504542129.png" class="h-8" alt="Flowbite Logo">
-                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Maskan</span>
+                        <span class="self-center text-2xl whitespace-nowrap font-extrabold">Maskan</span>
                     </a>
                     <button
                         id="minub"
                         data-collapse-toggle="navbar-default"
                         type="button"
-                        class="order-1 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        class="order-1 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
                         aria-controls="navbar-default"
                         aria-expanded="false"
                     >
@@ -43,43 +43,59 @@
                         </svg>
                     </button>
                     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                        <ul id="ulnav" class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <ul id="ulnav" class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
                             <li>
-                                <a href="#" class="block py-2 px-3 text-white bg-lime-600 rounded-sm md:bg-transparent md:text-mile-600 md:p-0 dark:text-white md:dark:text-lime-500" aria-current="page">Home</a>
+                                <a href="#" class="font-bold block py-2 px-3 text-white bg-lime-600 rounded-sm md:bg-transparent md:text-mile-600 md:p-0 dark:text-white md:dark:text-lime-500" aria-current="page">Home</a>
                             </li>
                             <li>
-                                <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-lime-700 md:p-0 dark:text-white md:dark:hover:text-lime-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+                                <a href="#" class="font-bold block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-lime-700 md:p-0">About</a>
                             </li>
                             <li>
-                                <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-lime-500 md:hover:bg-transparent md:border-0 md:hover:text-lime-700 md:p-0 dark:text-white md:dark:hover:text-lime-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+                                <a href="#" class="font-bold block py-2 px-3 text-gray-900 rounded-sm hover:bg-lime-500 md:hover:bg-transparent md:border-0 md:hover:text-lime-700 md:p-0">Services</a>
                             </li>
                             <li>
-                                <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-lime-500 md:hover:bg-transparent md:border-0 md:hover:text-lime-700 md:p-0 dark:text-white md:dark:hover:text-lime-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
+                                <a href="#" class="font-bold block py-2 px-3 text-gray-900 rounded-sm hover:bg-lime-500 md:hover:bg-transparent md:border-0 md:hover:text-lime-700 md:p-0">Pricing</a>
                             </li>
                             <li>
-                                <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-lime-500 md:hover:bg-transparent md:border-0 md:hover:text-lime-700 md:p-0 dark:text-white md:dark:hover:text-lime-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+                                <a href="#" class="font-bold block py-2 px-3 text-gray-900 rounded-sm hover:bg-lime-500 md:hover:bg-transparent md:border-0 md:hover:text-lime-700 md:p-0">Contact</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="ml-auto mr-3 md:m-0">
-                        <i onclick="darck()" class="cursor-pointer dark:text-white mr-4 fa-solid fa-sun hover:text-lime-400" id="mode"></i>
-                        <i onclick="shoopp()" class="cursor-pointer dark:text-white mr-4 fa-solid fa-cart-shopping hover:text-lime-400"></i>
-                        <i onclick="favorite()" class="cursor-pointer dark:text-white fa-regular fa-heart hover:text-lime-400"></i>
+                    <input
+                        onkeyup="serch(this.value)"
+                        type="search"
+                        id="serch"
+                        class="hidden md:block bg-gray-50  w-52 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500  ps-10 p-2.5"
+                        placeholder="Search product ..."
+                        required
+                    >
+                    <div class="ml-auto mr-3 md:m-0 flex items-center justify-center gap-4">
+                        <i onclick="darck()" class="cursor-pointer fa-solid fa-sun hover:text-lime-400" id="mode"></i>
+                        <button id="cart-count" command="show-modal" commandfor="cart" class="relative">
+                            <i class="cursor-pointer fa-solid fa-cart-shopping hover:text-lime-400"></i>
+                        </button>
+                        <button id="fav-count" command="show-modal" commandfor="fav" class="relative">
+                            <i class="cursor-pointer fa-regular fa-heart hover:text-lime-400"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </nav>
-        <section class="pb-7 bg-gradient-to-t from-gray-300 via-white to-white dark:bg-gradient-to-t dark:from-gray-900 dark:via-gray-900 dark:to-gray-900">
+
+
+
+        <!-- section -->
+        <section class="pb-0 bg-gradient-to-t from-gray-300 via-white to-white">
             <div class="container m-auto">
                 <div class="grid max-w-screen-xl px-4 py-7 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                     <div class="mr-auto place-self-center lg:col-span-6">
-                        <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Your Home Base Made Easy</h1>
-                        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Discover high-quality home essentials, carefully selected to make your living space comfortable, practical, and stylish.</p>
+                        <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">Your Home Base Made Easy</h1>
+                        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">Discover high-quality home essentials, carefully selected to make your living space comfortable, practical, and stylish.</p>
                         <a
                             onclick="addpro()"
                             id="add-product"
                             href="#"
-                            class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-lime-600 hover:bg-lime-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
+                            class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-lime-600 hover:bg-lime-800 focus:ring-4 focus:ring-primary-300"
                         >
                             Add product
                             <svg
@@ -91,7 +107,7 @@
                                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                             </svg>
                         </a>
-                        <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                        <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100">
                             Explore Collection
                         </a>
                     </div>
@@ -100,127 +116,109 @@
                     </div>
                 </div>
             </div>
-            <input
-                onkeyup="serch(this.value)"
-                type="search"
-                id="serch"
-                class="mx-auto w-3/4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search branch name..."
-                required
-            >
+             <input
+                        onkeyup="serch(this.value)"
+                        type="search"
+                        id="serch"
+                        class="block mx-auto mb-4 md:hidden bg-gray-50  w-52 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500  ps-10 p-2.5"
+                        placeholder="Search product ..."
+                        required
+                    >
         </section>
-        <div class="dark:bg-gray-700 pb-3">
+        
+
+        <h2 class="mx-auto text-center mb-4 text-3xl font-bold">Home Decor categories</h2>
+        <div id="categories" class="grid grid-cols-3 md:grid-cols-6 gap-4 items-center justify-between md:px-15 container mx-auto">
+            <!-- categories -->
+        </div>
+        <div class="pb-3">
             <div class="container mx-auto">
                 <button
                     onclick="gridlisa()"
                     type="button"
-                    class="cursor-pointer mt-4 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:bg-gray-600 dark:text-white"
+                    class="cursor-pointer mt-4 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center"
                     data-modal-toggle="select-modal"
                 >
                     <i class="fa-solid fa-list"></i>
                 </button>
             </div>
-            <div id="products" class="grid lg:grid-cols-4 md:grid-cols-3 gap-4 sm:grid-cols-1 container mx-auto my-4">
+            
+            <div id="products" class="grid lg:grid-cols-4 md:grid-cols-3 px-5 gap-4 sm:grid-cols-1 container mx-auto my-4">
                 <!-- prodacts -->
             </div>
         </div>
-        <!-- Main modal -->
-        <div
-            id="select-modal"
-            tabindex="-1"
-            aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
-        >
-            <div class="relative p-4 w-full max-w-md max-h-full">
-                <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
-                    <!-- Modal header -->
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                            Cart
-                        </h3>
-                        <button
-                            onclick="closss()"
-                            type="button"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                            data-modal-toggle="select-modal"
-                        >
-                            <svg
-                                class="w-3 h-3"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 14 14"
-                            >
-                                <path
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                                />
-                            </svg>
-                            <span class="sr-only">Close modal</span>
-                        </button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="p-4 md:p-5">
-                        <p class="text-gray-500 dark:text-gray-400 mb-4">Select your desired position:</p>
-                        <ul id="listCart" class="space-y-4 mb-4">
-                            <!-- Example list item --></ul>
-                        <button class="text-white inline-flex w-full justify-center bg-lime-400 hover:bg-blime-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-lime-500 dark:hover:bg-lime-600 dark:focus:ring-lime-600">
-                            Next step
-                        </button>
-                    </div>
+
+
+        <!-- cart -->
+        <el-dialog>
+            <dialog id="cart" aria-labelledby="drawer-title" class="fixed inset-0 size-auto max-h-none max-w-none overflow-hidden bg-transparent not-open:hidden backdrop:bg-transparent">
+                <el-dialog-backdrop class="absolute inset-0 bg-gray-900/50 transition-opacity duration-500 ease-in-out data-closed:opacity-0">111</el-dialog-backdrop>
+
+                <div tabindex="0" class="absolute inset-0 pl-10 focus:outline-none sm:pl-16">
+                    <el-dialog-panel class="group/dialog-panel relative ml-auto block size-full max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700">
+                        <!-- Close button, show/hide based on slide-over state. -->
+                        <div class="absolute top-0 left-0 -ml-8 flex pt-4 pr-2 duration-500 ease-in-out group-data-closed/dialog-panel:opacity-0 sm:-ml-10 sm:pr-4">
+                            <button type="button" command="close" commandfor="cart" class="relative rounded-md text-gray-100 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                                <span class="absolute -inset-2.5"></span>
+                                <span class="sr-only">Close panel</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+                                <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="relative flex h-full flex-col overflow-y-auto bg-gray-200 py-6 shadow-xl after:absolute after:inset-y-0 after:left-0 after:w-px after:bg-white/10">
+                            <div class="px-4 sm:px-6">
+                                <h2 id="drawer-title" class="text-base font-semibold text-gray-900">cart</h2>
+                            </div>
+                            <div id="cartlistCon" class="relative mt-6 flex-1 px-7 sm:px-6">
+                                <!-- Your content -->
+                            </div>
+                            <div class="fixed w-md z-10 bottom-0 bg-gray-300 px-10 py-5  flex justify-between items-center">
+                                <div>total price : $<span id="totalcart">0</span></div>
+                                <button class="bg-lime-600 text-white py-1 px-3 rounded-lg  cursor-pointer">checkout</button>
+                            </div>
+                        </div>
+                    </el-dialog-panel>
                 </div>
-            </div>
-        </div>
-        <!-- favorite modal -->
-        <div
-            id="select-favorite"
-            tabindex="-1"
-            aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-auto left-auto z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
-        >
-            <div class="relative p-4 w-full max-w-md max-h-full">
-                <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
-                    <!-- Modal header -->
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                            Open positions
-                        </h3>
-                        <button
-                            onclick="clossf()"
-                            id="clossf"
-                            type="button"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                            data-modal-toggle="select-modal"
-                        >
-                            <svg
-                                class="w-3 h-3"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 14 14"
-                            >
-                                <path
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                                />
-                            </svg>
-                            <span class="sr-only">Close modal</span>
-                        </button>
+            </dialog>
+        </el-dialog>
+
+
+
+        <!-- favorite -->
+       <el-dialog>
+            <dialog id="fav" aria-labelledby="drawer-title" class="fixed inset-0 size-auto max-h-none max-w-none overflow-hidden bg-transparent not-open:hidden backdrop:bg-transparent">
+                <el-dialog-backdrop class="absolute inset-0 bg-gray-900/50 transition-opacity duration-500 ease-in-out data-closed:opacity-0"></el-dialog-backdrop>
+                <div tabindex="0" class="absolute inset-0 pl-10 focus:outline-none sm:pl-16">
+                <el-dialog-panel class="group/dialog-panel relative ml-auto block size-full max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700">
+                    <!-- Close button, show/hide based on slide-over state. -->
+                    <div class="absolute top-0 left-0 -ml-8 flex pt-4 pr-2 duration-500 ease-in-out group-data-closed/dialog-panel:opacity-0 sm:-ml-10 sm:pr-4">
+                    <button type="button" command="close" commandfor="fav" class="relative rounded-md text-gray-100 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                        <span class="absolute -inset-2.5"></span>
+                        <span class="sr-only">Close panel</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+                        <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
                     </div>
-                    <!-- Modal body -->
-                    <div id="minuFavorite" class="p-4 md:p-5"></div>
+
+                    <div class="relative flex h-full flex-col overflow-y-auto bg-gray-200 py-6 shadow-xl after:absolute after:inset-y-0 after:left-0 after:w-px after:bg-white/10">
+                    <div class="px-4 sm:px-6">
+                        <h2 id="drawer-title" class="text-base font-semibold text-gray-900">favorite</h2>
+                    </div>
+                    <div id="favoritListCon" class="relative mt-6 flex-1 px-4 sm:px-6">
+                        <!-- Your content -->
+                        
+
+                    </div>
+                    </div>
+                </el-dialog-panel>
                 </div>
-            </div>
-        </div>
-        <!-- addprobutt -->
+            </dialog>
+        </el-dialog>
+
+        <!-- add probut -->
         <div
             id="addprobutt"
             tabindex="-1"
@@ -296,7 +294,7 @@
                             </ه>
                         </div>
                     </div>
-                    <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">
                         <svg
                             class="me-1 -ms-1 w-5 h-5"
                             fill="currentColor"
@@ -321,17 +319,46 @@
             <p id="mordis" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></p>
             <button id="btnc" class="text-white bg-lime-500 hover:bg-lime-500 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">Add Cart</button>
         </div>
-        
     </div>
+
+
+    <!-- show more -->
+        <div id="modlProduct" class="fixed inset-0 z-20 hidden">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative mt-20 w-full max-w-2xl bg-white rounded-3xl mx-auto p-5">
+                <div class="flex items-center justify-between mb-4">
+                    <h1 id="modaltitle" class="text-xl font-bold"></h1>
+                    <button id="closemodalbtn" class="text-gray-500 text-xl font-bold px-2 hover:text-red-500 cursor-pointer ">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="overflow-y-auto max-h-96 mb-4 px-1">
+                    <img id="modalimg" class="w-full h-64 rounded-xl object-cover mb-4" src="" alt="Product Image"> 
+                    <div id="imgbox" class="flex gap-3"></div>
+                    <p id="modalprice" class="text-lg font-semibold mb-2"></p>
+                    <p id="modaldesc" class="text-gray-700 mb-4"></p>  
+                </div>
+                <button id="addtocartbtn" class="bg-lime-500 text-white px-4 py-2 rounded-lg hover:bg-lime-600 focus:ring-4 focus:outline-none focus:ring-lime-300">Add to Cart</button>                
+            </div>
+
+        </div>
+
+    <!-- footer -->
     <footer class="bg-white dark:bg-gray-900">
         <div class="container m-auto">
             <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div class="md:flex md:justify-between">
-                    <div class="mb-6 md:mb-0">
+                    <div class="mb-6 md:mb-0 md:max-w-1/2">
                         <a href="#" class="flex items-center">
                             <img src="./img11/1756504542129.png" class="h-8 me-3" alt="FlowBite Logo">
                             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Maskan</span>
                         </a>
+                        <h2 class="text-white text-lg">
+                            Your Home Base Made Easy
+                        </h2>
+                        <p class="text-md text-gray-500">
+                            Discover high-quality home essentials, carefully selected to make your living space comfortable, practical, and stylish.
+                        </p>
                     </div>
                     <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
@@ -349,10 +376,10 @@
                             <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
                             <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                 <li class="mb-4">
-                                    <a href="#" class="hover:underline ">Github</a>
+                                    <a href="#" class="hover:underline ">Pricing</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="hover:underline">Discord</a>
+                                    <a href="#" class="hover:underline">Services</a>
                                 </li>
                             </ul>
                         </div>
@@ -373,7 +400,7 @@
                 <div class="sm:flex sm:items-center sm:justify-between">
                     <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
                         © 2023
-                        <a href="#" class="hover:underline">Flowbite™</a>
+                        <a href="#" class="hover:underline">Mskan</a>
                         . All Rights Reserved.
                     </span>
                     <div class="flex mt-4 sm:justify-center sm:mt-0">

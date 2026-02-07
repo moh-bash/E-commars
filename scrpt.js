@@ -305,7 +305,7 @@ function favCount() {
 
 // show more details
 let modlProduct = document.getElementById("modlProduct");
-function (productid) {
+function showProductDetails(productid){
   modlProduct.classList.remove("hidden");
   const product = data.products.find(p => p.id == productid);
   document.getElementById("modaltitle").innerText = product.name;

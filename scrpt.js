@@ -305,12 +305,16 @@ function favCount() {
 
 // show more details
 let modlProduct = document.getElementById("modlProduct");
-function showProductDetails(productid){
+function showMore(productid){
   modlProduct.classList.remove("hidden");
   const product = data.products.find(p => p.id == productid);
   document.getElementById("modaltitle").innerText = product.name;
   document.getElementById("modalprice").innerText = `$${product.price}`;
   document.getElementById("modaldesc").innerText = product.description;
+  document.getElementById("modalcategory").innerText = product.category;
+  document.getElementById("modalrating").innerText = `${product.rating} (${product.reviews} reviews)`;
+  document.getElementById("modalmaterial").innerText = product.material;
+  document.getElementById("modalcolors").innerText = product.colors.join(", ");
   let minimg = document.getElementById("modalimg");
   let imagesBox = document.getElementById("imgbox");
 
